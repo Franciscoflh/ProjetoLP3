@@ -31,7 +31,6 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
 
         jMenu1.setText("jMenu1");
 
@@ -92,27 +91,13 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu5.setText("Funcionario");
+        jMenu5.setText("Funcionários");
         jMenu5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jMenuBar1.add(jMenu5);
 
         jMenu4.setText("Sobre");
         jMenu4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jMenuBar1.add(jMenu4);
-
-        jMenu6.setText("Finalizar");
-        jMenu6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu6MouseClicked(evt);
-            }
-        });
-        jMenu6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu6ActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(jMenu6);
 
         setJMenuBar(jMenuBar1);
 
@@ -142,15 +127,6 @@ public class Menu extends javax.swing.JFrame {
         contane.repaint();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jMenu6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu6ActionPerformed
-       
-    }//GEN-LAST:event_jMenu6ActionPerformed
-
-    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
-        Menu menu = new Menu();
-        menu.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    }//GEN-LAST:event_jMenu6MouseClicked
-
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         AtualizarProduto panel = new AtualizarProduto();
         panel.setSize(495, 390);
@@ -168,7 +144,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
