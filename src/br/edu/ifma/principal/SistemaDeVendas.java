@@ -5,18 +5,15 @@
  */
 package br.edu.ifma.principal;
 
-import br.edu.ifma.views.LoginFrame;
+import br.edu.ifma.views.Login;
 
 
 
-/**
- *
- * @author lucas 
- */
-public class Lp3 {
+
+public class SistemaDeVendas {
     
     public static void main(String[] args) {
-        LoginFrame frame = new LoginFrame();
+        Login frame = new Login();
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
     }

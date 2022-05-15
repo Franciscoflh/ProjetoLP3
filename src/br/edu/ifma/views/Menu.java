@@ -7,13 +7,13 @@ package br.edu.ifma.views;
 
 import java.awt.BorderLayout;
 
-public class MenuFrame extends javax.swing.JFrame {
+public class Menu extends javax.swing.JFrame {
 
-    public MenuFrame() {
+    public Menu() {
         initComponents();
         this.setSize(650,550);
         this.setResizable(false);
-           
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     @SuppressWarnings("unchecked")
@@ -74,6 +74,11 @@ public class MenuFrame extends javax.swing.JFrame {
 
         jMenuItem3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jMenuItem3.setText("Atualizar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem3);
 
         jMenuBar1.add(jMenu2);
@@ -97,6 +102,16 @@ public class MenuFrame extends javax.swing.JFrame {
 
         jMenu6.setText("Finalizar");
         jMenu6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu6MouseClicked(evt);
+            }
+        });
+        jMenu6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu6ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu6);
 
         setJMenuBar(jMenuBar1);
@@ -118,7 +133,7 @@ public class MenuFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        CadastrarPanel panel = new CadastrarPanel();
+        CadastrarProduto panel = new CadastrarProduto();
         panel.setSize(495, 390);
         panel.setLocation(0, 0);
         contane.removeAll();
@@ -126,6 +141,25 @@ public class MenuFrame extends javax.swing.JFrame {
         contane.revalidate();
         contane.repaint();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenu6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu6ActionPerformed
+       
+    }//GEN-LAST:event_jMenu6ActionPerformed
+
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+        Menu menu = new Menu();
+        menu.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }//GEN-LAST:event_jMenu6MouseClicked
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        AtualizarProduto panel = new AtualizarProduto();
+        panel.setSize(495, 390);
+        panel.setLocation(0, 0);
+        contane.removeAll();
+        contane.add(panel, BorderLayout.CENTER);
+        contane.revalidate();
+        contane.repaint();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contane;

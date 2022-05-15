@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class LoginFrame extends JFrame implements ActionListener {
+public class Login extends JFrame implements ActionListener {
     
     Container container = getContentPane();
     JLabel label = new JLabel(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifma/image/sale.png")));
@@ -17,7 +17,7 @@ public class LoginFrame extends JFrame implements ActionListener {
     JButton resetButton = new JButton("LIMPAR");
     JCheckBox showPassword = new JCheckBox("Mostrar senha");
     
-    public LoginFrame() {
+    public Login() {
         setLayoutManager();
         setLocationAndSize();
         addComponentsToContainer();
@@ -68,7 +68,7 @@ public class LoginFrame extends JFrame implements ActionListener {
             if (userText.equalsIgnoreCase("") && pwdText.equalsIgnoreCase("")) {
                 JOptionPane.showMessageDialog(this, "Login com sucesso!!");
                 setVisible(false);
-                new MenuFrame().setVisible(true);
+                new Menu().setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(this, "Usuário ou senha inválido");
             }

@@ -9,12 +9,12 @@ package br.edu.ifma.views;
  *
  * @author lucas
  */
-public class AtualizarPanel extends javax.swing.JPanel {
+public class AtualizarProduto extends javax.swing.JPanel {
 
     /**
      * Creates new form AtualizarPanel
      */
-    public AtualizarPanel() {
+    public AtualizarProduto() {
         initComponents();
     }
 
@@ -36,11 +36,11 @@ public class AtualizarPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Nome", "Título 2"
+                "Nome", "Preço", "Quantidade", "Código", "Descrição"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Float.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
