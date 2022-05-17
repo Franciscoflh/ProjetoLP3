@@ -30,7 +30,9 @@ public class Menu extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -93,10 +95,28 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu5.setText("Funcionários");
         jMenu5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
+        jMenuItem5.setText("Ver Funcionários");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem5);
+
         jMenuBar1.add(jMenu5);
 
         jMenu4.setText("Sobre");
         jMenu4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
+        jMenuItem6.setText("Ver Sobre");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem6);
+
         jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
@@ -137,6 +157,26 @@ public class Menu extends javax.swing.JFrame {
         contane.repaint();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        Funcionario panel = new Funcionario();
+        panel.setSize(495, 390);
+        panel.setLocation(0, 0);
+        contane.removeAll();
+        contane.add(panel, BorderLayout.CENTER);
+        contane.revalidate();
+        contane.repaint();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        Sobre panel = new Sobre();
+        panel.setSize(495, 390);
+        panel.setLocation(0, 0);
+        contane.removeAll();
+        contane.add(panel, BorderLayout.CENTER);
+        contane.revalidate();
+        contane.repaint();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel contane;
     private javax.swing.JMenu jMenu1;
@@ -149,6 +189,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     // End of variables declaration//GEN-END:variables
 
 
