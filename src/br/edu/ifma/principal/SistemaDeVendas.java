@@ -5,17 +5,18 @@
  */
 package br.edu.ifma.principal;
 
-import br.edu.ifma.views.Login;
-
-
-
+import br.edu.ifma.views.LoginFrame;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class SistemaDeVendas {
-    
+
     public static void main(String[] args) {
-        Login frame = new Login();
+        LoginFrame frame = new LoginFrame();
+        frame.setTitle("Sistema de Vendas");
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+
     }
-    
+
 }

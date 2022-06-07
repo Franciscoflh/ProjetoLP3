@@ -6,13 +6,15 @@
 
 package br.edu.ifma.views;
 
-import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author lucas
- */
+
 public class CadastrarProduto extends javax.swing.JPanel {
 
     /** Creates new form NewJPanel */
@@ -28,50 +30,50 @@ public class CadastrarProduto extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        nomeText = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        precoText = new javax.swing.JFormattedTextField();
         jLabel3 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
+        qtdText = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        descText = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
         jLabel6 = new javax.swing.JLabel();
+        codeText = new javax.swing.JFormattedTextField();
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Nome:");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
-        jTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 180, 30));
+        nomeText.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel2.add(nomeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 210, 30));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("Preço:");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, -1, -1));
 
-        jFormattedTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel2.add(jFormattedTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 113, 30));
+        precoText.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel2.add(precoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 120, 30));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setText("Quantidade:");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
-        jFormattedTextField2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel2.add(jFormattedTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 160, 30));
+        qtdText.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel2.add(qtdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 160, 30));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setText("Descrição");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        descText.setColumns(20);
+        descText.setRows(5);
+        jScrollPane1.setViewportView(descText);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 428, 120));
 
@@ -95,18 +97,12 @@ public class CadastrarProduto extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel5.setText("Código:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
-
-        try {
-            jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#######")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        jPanel2.add(jFormattedTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 113, 30));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("Cadastrar Produto");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 160, 20));
+        jPanel2.add(codeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 120, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -132,12 +128,37 @@ public class CadastrarProduto extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jTextField1.setText("");
-        jFormattedTextField1.setText("");
-        jFormattedTextField2.setText("");
-        jFormattedTextField3.setText("");
-        jTextArea1.setText("");
+        
+        String nome = nomeText.getText();
+        float preco = Float.parseFloat(precoText.getText().trim());
+        int qtd = Integer.parseInt(qtdText.getText().trim());
+        String desc = descText.getText();
+        int code = Integer.parseInt(codeText.getText().trim());
+        
         JOptionPane.showMessageDialog(this, "Cadastro salvo com sucesso!\nSeguindo para o proximo registro!");
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = (Connection) DriverManager
+            .getConnection("jdbc:mysql://localhost:3306/sistema_vendas?useTimezone=true&serverTimezone=UTC", "root", "root");
+
+            PreparedStatement st = (PreparedStatement) connection
+            .prepareStatement("Insert into produto (nome, descricao, preco, qtd, code_) values(?,?,?,?,?)");
+            
+            st.setString(1, nome);
+            st.setString(2, desc);
+            st.setFloat(3, preco);
+            st.setInt(4, qtd);
+            st.setInt(5, code);
+            int rs = st.executeUpdate();
+            
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CadastrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch(NumberFormatException number){
+            number.printStackTrace();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -147,11 +168,10 @@ public class CadastrarProduto extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFormattedTextField codeText;
+    private javax.swing.JTextArea descText;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -161,8 +181,9 @@ public class CadastrarProduto extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField nomeText;
+    private javax.swing.JFormattedTextField precoText;
+    private javax.swing.JFormattedTextField qtdText;
     // End of variables declaration//GEN-END:variables
 
 }
